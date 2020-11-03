@@ -25,3 +25,7 @@
     font-size: 0.8em;
     width:90%;
 }
+
+.checked{
+    color: rgb(255, 196, 0);
+}

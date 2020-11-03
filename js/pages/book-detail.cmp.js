@@ -122,6 +122,8 @@ export default {
         }
     },
     created() {
+        console.log(this.$route)
+
         const bookId = this.$route.params.bookId;
         bookService.getBookById(bookId)
             .then(book => this.book = book)

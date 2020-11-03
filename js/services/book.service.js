@@ -1278,9 +1278,9 @@ function _createBooks() {
             }
         }
     ]
-    return books.map(book => {
-        book.reviews = []
-        return book
-    })
+    return books.map(book => ({...book,reviews:[]}))
+        // book.reviews = []
+        // return book
+    // })
 }
 

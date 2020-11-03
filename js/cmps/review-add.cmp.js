@@ -14,13 +14,14 @@ export default {
                     </label>
                     <label class="rating">
                         Rate: 
-                        <select name="reting" v-model:value="review.rating">
+                        <span v-for="idx in 5" @click="updateRating(idx)"><i :class="starClass(idx)"></i></span>
+                        <!-- <select name="reting" v-model:value="review.rating">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                        </select>
+                        </select> -->
                     </label>
                     <label>
                         Read At:
@@ -42,6 +43,15 @@ export default {
             review: null,
         }
     },
+    computed:{
+        goodRatingStars(){
+            return this.review.rating;
+        },
+        badRatingStars(){
+            return 5 - this.review.rating;
+        }
+        
+    },
     methods: {
         addReview() {
             bookService.addReview(this.review, this.bookId)
@@ -52,7 +62,15 @@ export default {
         cancelAdd() {
             this.$emit('canceled')
             this.review = null;
+        },
+        updateRating(num) {
+            this.review.rating = num;
+        },
+        starClass(idx){
+            console.log(idx <= this.review.rating)
+            return {'fas fa-star checked' : idx <= this.review.rating, 'far fa-star' : idx > this.review.rating}
         }
+        
     },
     mounted() {
         this.$refs.nameInput.focus();

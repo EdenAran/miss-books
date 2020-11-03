@@ -6,6 +6,7 @@
 @import 'book-add.css';
 @import 'book-filter.css';
 @import 'about.css';
+@import 'home.css';
 
 * {
     box-sizing: border-box;

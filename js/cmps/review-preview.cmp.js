@@ -3,7 +3,7 @@ export default{
     template:`
         <section class="review-preview">
             <h3>{{review.fullName}}</h3>
-                <p>Rating: {{review.rating}}</p>
+                <p>Rating:</p><span v-for="idx in 5" @click="updateRating(idx)"><i :class="starClass(idx)"></i></span>
                 <p>Read At: {{dateToShow}}</p>
             <p class="review-info">{{review.moreInfo}}</p>
             <button class="delete-review" @click="emitDelete(review.id)">x</button>
@@ -17,6 +17,10 @@ export default{
     methods:{
         emitDelete(id){
             this.$emit('delete', id)
+        },
+        starClass(idx){
+            console.log(idx <= this.review.rating)
+            return {'fas fa-star checked' : idx <= this.review.rating, 'far fa-star' : idx > this.review.rating}
         }
     },
 }
