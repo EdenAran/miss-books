@@ -2,7 +2,7 @@
 .review-add{
     position: absolute;
     background-color: aliceblue;
-    width: 500px;
+    max-width: 500px;
     height:600px;
     top:10px;
     left: calc(50% - 250px);

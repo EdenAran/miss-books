@@ -1,11 +1,12 @@
 export default {
     template:`
-    <section>
-        <h2>About Us</h2>
-        <p>My name is Eden and I'm trying to think about what to put here...</p>
-        <p>I enjoy readeing books, which is good because this is what this app is all about.</p>
-        <p>I hope you will enjoy it :)</p>
-
+    <section class="about">
+        <h2>My About Page</h2>
+        <nav class="about-nav">
+            <router-link to="/about/me">About Me</router-link>
+            <router-link to="/about/books">About Books</router-link>
+        </nav>
+        <router-view></router-view>
     </section>
     `
 }

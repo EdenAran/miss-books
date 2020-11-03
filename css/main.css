@@ -3,6 +3,9 @@
 @import 'review-add.css';
 @import 'user-msg.css';
 @import 'app-header.css';
+@import 'book-add.css';
+@import 'book-filter.css';
+@import 'about.css';
 
 * {
     box-sizing: border-box;

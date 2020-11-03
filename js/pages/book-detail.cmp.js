@@ -9,6 +9,8 @@ export default {
     template: `
     <section class="book-detail" v-if="book">
         <h2 class="title">{{book.title}}</h2>
+        <span class="nav-btn prev" @click="changeBook(-1)"><i class="fas fa-chevron-left"></i></span>
+        <span class="nav-btn next" @click="changeBook(1)"><i class="fas fa-chevron-right"></i></span>
         <div class="img-container">
             <img :src="book.thumbnail" alt="">
             <h5 class="sale" v-if="isOnSale">ON SALE!</h5>
@@ -107,6 +109,16 @@ export default {
             this.book.reviews.splice(idx,1)
             bookService.saveBooks();
             eventBus.$emit('show-msg', {txt:'Review has been deleted', type:'Success'})
+        },
+        changeBook(diff){
+            const nextId= bookService.getNextBookId(this.book.id, diff);
+            this.$router.push(`/book/${nextId}`);
+        }
+    },
+    watch:{
+        '$route.params.bookId'(newId){
+            bookService.getBookById(newId)
+            .then(book => this.book = book)
         }
     },
     created() {

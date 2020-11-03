@@ -2,6 +2,8 @@ import bookApp from './pages/book-app.cmp.js'
 import bookDetail from './pages/book-detail.cmp.js'
 import homePage from './pages/home.cmp.js'
 import aboutPage from './pages/about.cmp.js'
+import aboutBooks from './pages/about-books.cmp.js'
+import aboutMe from './pages/about-me.cmp.js'
 
 const myRoutes = [
     {
@@ -10,7 +12,17 @@ const myRoutes = [
     },
     {
         path: '/about',
-        component: aboutPage
+        component: aboutPage,
+        children: [
+            {
+                path: 'books',
+                component: aboutBooks
+            },
+            {
+                path: 'me',
+                component: aboutMe
+            }
+        ]
     },
     {
         path: '/book',

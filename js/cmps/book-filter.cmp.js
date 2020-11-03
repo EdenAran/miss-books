@@ -3,7 +3,7 @@
 
 export default {
     template: `
-    <section>
+    <section class="book-filter">
         <h3>filter By:</h3>
         <form @submit.prevent="emitFilter">
             <label>
@@ -18,8 +18,10 @@ export default {
                 max price
                 <input type="number" v-model.number="filterBy.toPrice">
             </label>
+            <div class="btns">
             <button>Apply Filter</button>
             <button type="button" @click="resetFilter">Reset Filter</button>
+            </div>
         </form>
     </section>
 
